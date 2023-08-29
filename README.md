@@ -43,3 +43,10 @@ Javascript ch1:
  - - console.log("five"*2)
  - - //-> NaN
 
+Loops
+
+ - For loops
+
+ - - for (//initial value; logical condition; how it changes) {
+  console.log(number);
+}

@@ -4,6 +4,11 @@ let name = "Rhys";
 
 console.log(name + " is learning JS")
 
+// Javascript counts from 0
+// so 3 is the 4th number.
+
+
+
 // how to make a function
 
 const square = function(x) {

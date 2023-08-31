@@ -43,9 +43,10 @@ console.log(str);
 
 // Variable Size Chessboard
 
-size = 8;
+size = 10;
 line = 1;
 str = "";
+if(size % 2 == 0){
 while(line <= size){
     if(line % 2 == 0){
             str = str + "# ".repeat(size/2) + "\n";
@@ -55,4 +56,6 @@ while(line <= size){
     line = line + 1;
 }
 console.log(str);
-
+} else {
+    console.log("Size must be an even number")
+}

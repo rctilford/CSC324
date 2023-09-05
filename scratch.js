@@ -1,3 +1,56 @@
+// Notes
+
+// Javascript ch1:
+
+//  - console.log('con' + 'cat' + 'e' + 'nate')
+
+//  - - One thing about this is that JS won't automatically print stuff to the console.
+//  - - I must use a console.log() call
+//  - - the .log part is a part of object oriented programming
+
+//  - repeating words
+//  - - console.log("hey" repeat(7))
+
+//  - using text and code in string
+//  - - console.log(`half 100 is ${100/2}`)
+
+//  - operators (don't worry just yet)
+//  - - console.log(typeof 4.5)
+//  - - console.log(typeof "x")
+
+//  - commenting
+//  - - // -> this is a comment
+
+//  - dealing with edge cases
+//  - - console.log(Nan == Nan)
+//  - - // -> false
+
+//  - Look into the specifics of Boolean Operators
+//  - - JS is pickier than R
+
+//  - ternary arguments (can be either or)
+//  - - console.log(true ? 1 : 2);
+//  - - // -> 1
+//  - - console.log(false ? 1 : 2);
+//  - - // -> 2
+
+//  - Automatic Type Conversion
+//  - - JS does this but it sometimes guesses unexpedted results
+//  - - console.log("five"*2)
+//  - - //-> NaN
+
+// Loops
+
+//  - For loops
+
+//  - - for (//initial value; logical condition; how it changes) {
+//   console.log(number);
+// }
+
+
+
+
+
 console.log("Hello World!!!!!!!");
 
 let name = "Rhys";
@@ -82,6 +135,12 @@ function power(base, exponent) {
 
 // This is when a function calling
 // its self inside its own body
+
+// 9/5 Notes
+
+// Always use let in functions when defining a variable
+/// This prevents the variable from gaining scope outside
+/// the function.
 
 
 

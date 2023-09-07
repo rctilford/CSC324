@@ -3,19 +3,18 @@
 
 // Minimum
 function min(x, y) {
-//    if ((typeof (x)) !== "number" / (typeof (y)) !== "number") {
-//        return("You want me to coerce that?!?!?!\n Gimme some numbers.");
-//     } else {
+    if (typeof x === "number" & typeof y === "number") {
         if (x < y == true) {
-            return(x + " is the minimum");
+            return (x + " is the minimum");
         } else {
-            return(y + " is the minimum");
+            return (y + " is the minimum");
         };
-   };
-// };
+    } else {
+        return ("You want me to coerce that?!?!?!\n Gimme some numbers.");
+    };
+};
 
-
-console.log(min("z","w"));
+console.log(min(3,8902394));
 
 // Recursion
 function isEven(x) {
@@ -34,14 +33,12 @@ function isEven(x) {
     };
 };
 
-
-console.log(isEven(18));
+console.log(isEven(19));
 
 // Bean Counting
-function countBs(x){
-    let i = 0;
-    let Bfindr = /(.?)+B(.?)+/;
-
-    Bfindr.test("xslkfj")
-
+function countBs(str){
+    let count = str.match(/B/g).length;
+    console.log(count);
 }
+
+countBs("Google Bard is on some crazy BS");

@@ -19,21 +19,21 @@ console.log(min(3,8902394));
 // Recursion
 function isEven(x) {
     if (x < 0) {
-        return ("Try again with a positive number");
-    } else {
-        if (x == 0) {
-            return (true);
-        }
-        if (x == 1) {
-            return (false);
-        }
-        if (x !== 0 & x !== 1) {
-            return (isEven(x - 2));
-        };
+        x = -x
+    }
+
+    if (x == 0) {
+        return (true);
+    }
+    if (x == 1) {
+        return (false);
+    }
+    if (x !== 0 & x !== 1) {
+        return (isEven(x - 2));
     };
 };
 
-console.log(isEven(19));
+console.log(isEven(-19));
 
 // Bean Counting
 function countBs(str){

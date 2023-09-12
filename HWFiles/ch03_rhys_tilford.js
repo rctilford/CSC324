@@ -38,7 +38,8 @@ console.log(isEven(-19));
 // Bean Counting
 function countBs(str){
     let count = str.match(/B/g).length;
-    console.log(count);
+    return(count); 
 }
 
-countBs("Google Bard is on some crazy BS");
+console.log(countBs("Google Bard is on some crazy BS"));
+

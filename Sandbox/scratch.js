@@ -310,5 +310,18 @@ function tableFor(event, journal) {
 // → [76, 9, 4, 1]
 
 
+// 9/12 notes
+
+// There is a .slice method that is very useful.
+// it can remove a slice of an array.
+// syntax: array.slice(start, end)
+
+// If you make a function make sure you have a return call.
+// use a console.log() call when you call the function.
+
+// higher order functions
+/// it can be nice to use the anonymous notation for
+/// higher order functions in JS
+/// for example: i => {  labels.push(`Unit ${i + 1}`);  }
 
 

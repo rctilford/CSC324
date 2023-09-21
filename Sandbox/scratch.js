@@ -583,17 +583,17 @@ returned at the end of the function.
 
 // Map is kinda like doing object oriented programming without prototypes
 
-let ages = new Map();
-ages.set("Boris", 39);
-ages.set("Liang", 22);
-ages.set("Júlia", 62);
+// let ages = new Map();
+// ages.set("Boris", 39);
+// ages.set("Liang", 22);
+// ages.set("Júlia", 62);
 
-console.log(`Júlia is ${ages.get("Júlia")}`);
-// → Júlia is 62
-console.log("Is Jack's age known?", ages.has("Jack"));
-// → Is Jack's age known? false
-console.log(ages.has("toString"));
-// → false
+// console.log(`Júlia is ${ages.get("Júlia")}`);
+// // → Júlia is 62
+// console.log("Is Jack's age known?", ages.has("Jack"));
+// // → Is Jack's age known? false
+// console.log(ages.has("toString"));
+// // → false
 
 // these maps won't inherit methods like tostring
 
@@ -620,43 +620,74 @@ console.log(ages.has("toString"));
 // by using get in front of the definition we
 // disguise the method as a function.
 
-let varyingSize = {
-    get size() {
-      return Math.floor(Math.random() * 100);
-    }
-  };
+// let varyingSize = {
+//     get size() {
+//       return Math.floor(Math.random() * 100);
+//     }
+//   };
   
-  console.log(varyingSize.size);
-  // → 73
-  console.log(varyingSize.size);
-  // → 49
+//   console.log(varyingSize.size);
+//   // → 73
+//   console.log(varyingSize.size);
+//   // → 49
 
-// an application
+// // an application
 
-class Temperature {
-    constructor(celsius) {
-      this.celsius = celsius;
-    }
-    get fahrenheit() {
-      return this.celsius * 1.8 + 32;
-    }
-    set fahrenheit(value) {
-      this.celsius = (value - 32) / 1.8;
-    }
+// class Temperature {
+//     constructor(celsius) {
+//       this.celsius = celsius;
+//     }
+//     get fahrenheit() {
+//       return this.celsius * 1.8 + 32;
+//     }
+//     set fahrenheit(value) {
+//       this.celsius = (value - 32) / 1.8;
+//     }
   
-    static fromFahrenheit(value) {
-      return new Temperature((value - 32) / 1.8);
+//     static fromFahrenheit(value) {
+//       return new Temperature((value - 32) / 1.8);
+//     }
+//   }
+  
+//   let temp = new Temperature(22);
+//   console.log(temp.fahrenheit);
+//   // → 71.6
+//   temp.fahrenheit = 86;
+//   console.log(temp.celsius);
+//   // → 30
+
+
+class Person {
+    constructor(name, age, desire){
+        this.name = name;
+        this.age = age;
+        this.desire = desire;
     }
-  }
-  
-  let temp = new Temperature(22);
-  console.log(temp.fahrenheit);
-  // → 71.6
-  temp.fahrenheit = 86;
-  console.log(temp.celsius);
-  // → 30
+    greet(){
+        console.log(`Hello, my name is ${this.name}`);
+    }
+    get age(){
+        console.log(`the age of ${this.name} is ${this.age}`);
+        return this.age;
+    }
+    static fromInfo(name, age, desire) {
 
-  
+    }
+}
+
+ldorothy = new Person("Dorothy", 12, "Kansas");
+dorothy.greet();
+console.log(dorothy.desire);
+console.log(dorothy);
 
 
 
+class Lion extends Person {
+    eat() {
+        console.log("Yum!");
+    }
+}
+
+cowardly = new Lion("Coward", 28, "Courage")
+console.log(cowardly);
+cowardly.eat();

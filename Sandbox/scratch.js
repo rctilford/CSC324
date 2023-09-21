@@ -402,7 +402,261 @@
 
 // 
 
-
 // // Read the composability section of ch 5
+
+// for loop syntax
+
+// for(let element of array){}
+
+
+// 9/19: ch6 Object oriented programming in JavaScript.
+
+// let rabbit = {};
+// rabbit.speak = function(line) {
+//   console.log(`The rabbit says '${line}'`);
+// };
+
+// rabbit.speak("I'm alive.");
+// // → The rabbit says 'I'm alive.'
+
+//Typically A method needs to do something with the object that it is called on.
+// The speak function is not good because it's not relatecd to the rabbit.
+
+// function speak(line) {
+//     console.log(`The ${this.type} rabbit says '${line}'`);
+//   }
+//   let whiteRabbit = {type: "white", speak};
+//   let hungryRabbit = {type: "hungry", speak};
+  
+//   whiteRabbit.speak("Oh my ears and whiskers, " +
+//                     "how late it's getting!");
+//   // → The white rabbit says 'Oh my ears and whiskers, how
+//   //   late it's getting!'
+//   hungryRabbit.speak("I could use a carrot right now.");
+//   // → The hungry rabbit says 'I could use a carrot right now.'
+
+// // This function is much better.
+
+// // note. let is a reserved word in js.
+// // we are meant to use it to write objects.
+
+
+// // arrow function uniqueness.
+
+// function normalize() {
+//     console.log(this.coords.map(n => n / this.length));
+//   }
+//   normalize.call({coords: [0, 2, 3], length: 5});   // {} is object definiton in this case. that object is the "this".
+//   // → [0, 0.4, 0.6]
+
+// // arrow functions don't bind their own "this" but can see the "this" binding of the scope around them.
+// // the arrow function guesses that {coords: [0, 2, 3], length: 5} is the "this".
+
+
+// // IMPORTNAT
+
+// let empty = {};
+// console.log(empty.toString);
+// // → function toString(){…}
+// console.log(empty.toString());
+// // → [object Object]
+
+// // there is nothing in this object but this is valid code.
+
+// // there is a prototype for any object it's called object.prototype.
+
+// // Object.prototype has a property that is the prototype of everything.
+
+
+
+// let protoRabbit = {
+//     speak(line) {
+//       console.log(`The ${this.type} rabbit says '${line}'`);
+//     }
+//   };
+//   let killerRabbit = Object.create(protoRabbit); // Object.create is like a new method for objects and protorabbit is the prototype.
+//   killerRabbit.type = "killer";
+//   killerRabbit.speak("SKREEEE!");
+//   // → The killer rabbit says 'YEET!'
+
+// JS also has classes.
+
+// function makeRabbit(type) {
+//     let rabbit = Object.create(protoRabbit);
+//     rabbit.type = type;
+//     return rabbit;
+//   }
+// // this might be a constructer function
+
+
+// syntactic sugar helps make OOP easier.
+
+/* 
+JavaScript provides a way to make defining this
+type of function easier. If you put the keyword
+new in front of a function call, the function is
+treated as a constructor. This means that an
+object with the right prototype is automatically
+created, bound to this in the function, and
+returned at the end of the function.
+*/
+
+
+
+// function Rabbit(type) {
+//     this.type = type;
+//   }
+//   Rabbit.prototype.speak = function(line) {
+//     console.log(`The ${this.type} rabbit says '${line}'`);
+//   };
+  
+//   let weirdRabbit = new Rabbit("weird");
+
+//   console.log(weirdRabbit.speak("hello"))
+
+
+// an easier way to do classes with syntactic sugar.
+//   class Rabbit {
+//     constructor(type) {
+//       this.type = type;
+//       this.color = color;
+//     }
+//     speak(line) {
+//       console.log(`The ${this.type} rabbit says '${line}' and I think ${color} is fabulicious!`);
+//     }
+//   }
+  
+//   let killerRabbit = new Rabbit("killer", "Acid Green");
+//   let blackRabbit = new Rabbit("black", "black");
+
+
+
+// console.log(killerRabbit)
+// killerRabbit.speak("I play banjo music, paddle faster")
+
+// notes 9/21
+
+// Rabbit.prototype.teeth = "small";  
+// console.log(killerRabbit.teeth);
+// // → small
+// killerRabbit.teeth = "long, sharp, and bloody";
+// console.log(killerRabbit.teeth);
+// // → long, sharp, and bloody
+// console.log(blackRabbit.teeth);
+// // → small
+// console.log(Rabbit.prototype.teeth);
+// // → small
+
+// methods that come out of a prototype will have the methods of the prototype.
+
+// you can override a method by modifying the method.
+
+// The programmers of js have done this in the background as evidenced by this call.background
+
+// console.log(Array.prototype.toString ==
+//     Object.prototype.toString);
+// // → false
+
+// Calling toString on an array gives a result
+// similar to calling .join(",") on it—it puts
+// commas between the values in the array.
+// Directly calling Object.prototype.toString
+// with an array produces a different string.
+// That function doesn’t know about arrays, so
+// it simply puts the word object and the name
+// of the type between square brackets.
+
+// let ages = {
+//     Boris: 39,
+//     Liang: 22,
+//     Júlia: 62
+//   };
+
+// console.log(`Júlia is ${ages["Júlia"]}`);
+// // → Júlia is 62
+// console.log("Is Jack's age known?", "Jack" in ages); // the in call is used like %in% from R
+// // → Is Jack's age known? false
+// console.log("Is toString's age known?", "toString" in ages);
+// // → Is toString's age known? true
+
+// objects can be difficult because of prototypes
+
+// Map is kinda like doing object oriented programming without prototypes
+
+let ages = new Map();
+ages.set("Boris", 39);
+ages.set("Liang", 22);
+ages.set("Júlia", 62);
+
+console.log(`Júlia is ${ages.get("Júlia")}`);
+// → Júlia is 62
+console.log("Is Jack's age known?", ages.has("Jack"));
+// → Is Jack's age known? false
+console.log(ages.has("toString"));
+// → false
+
+// these maps won't inherit methods like tostring
+
+// it only has boris julia and liang.
+
+// Object.keys only returns the properties from
+// the object and no prototypes.
+ 
+// Use maps when possible
+
+
+
+// Polymorphism ----
+
+// // ex
+// 3 + 10
+// "Rhys" + "Tilford"
+
+// both operations use the plus symbol but they do different things
+// The compiler knows what to do with the code since they have different types
+
+// Getters, Setters, and Statics ----
+
+// by using get in front of the definition we
+// disguise the method as a function.
+
+let varyingSize = {
+    get size() {
+      return Math.floor(Math.random() * 100);
+    }
+  };
+  
+  console.log(varyingSize.size);
+  // → 73
+  console.log(varyingSize.size);
+  // → 49
+
+// an application
+
+class Temperature {
+    constructor(celsius) {
+      this.celsius = celsius;
+    }
+    get fahrenheit() {
+      return this.celsius * 1.8 + 32;
+    }
+    set fahrenheit(value) {
+      this.celsius = (value - 32) / 1.8;
+    }
+  
+    static fromFahrenheit(value) {
+      return new Temperature((value - 32) / 1.8);
+    }
+  }
+  
+  let temp = new Temperature(22);
+  console.log(temp.fahrenheit);
+  // → 71.6
+  temp.fahrenheit = 86;
+  console.log(temp.celsius);
+  // → 30
+
+  
+
 
 

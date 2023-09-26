@@ -4,7 +4,7 @@
 
 // Flattening 
 
-let arrays = [[1, 2, 3], [4, 5], [6, 7, 8, 9]]
+let arrays = [[1, 2, 3], [4, 5], [6, 7, 8, 9], ]
 
 console.log(arrays.reduce((arraycumulation, arrayappend) => arraycumulation.concat(arrayappend)));
 
@@ -25,8 +25,8 @@ loop(3, n => n > 0, n => n - 1, console.log);
 
 // Everything
 
-
 /// loop
+
 function every(array, test) {
     for (let element of array) {
       if (test(element) === false) {

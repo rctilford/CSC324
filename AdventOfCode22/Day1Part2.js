@@ -1,7 +1,15 @@
-const fs = require('fs')
+const fs = require('fs');
+const Input = fs.readFileSync('Day1Input.txt', 'utf8').split('\r\n');
 
-const path = require('path');
-const targetfile = path.resolve('AdventOfCode22\Day1Input.txt');
-const Input = fs.readFileSync(targetfile);
+function getAllIndexes(arr, val) {
+    var indexes = [], i;
+    for(i = 0; i < arr.length; i++)
+        if (arr[i] === val)
+            indexes.push(i);
+    return indexes;
+}
 
-console.log(Input);
+console.log(getAllIndexes(Input, ''));
+
+
+

@@ -691,3 +691,8 @@ class Lion extends Person {
 cowardly = new Lion("Coward", 28, "Courage")
 console.log(cowardly);
 cowardly.eat();
+
+
+
+// 10/3 ----
+/// Document object

@@ -8,7 +8,7 @@
 const imageNumbers = [1, 2, 3, 4];
 
 const button = document.querySelector("#randomizer");
-
+button.style = 'background-color: red';
 
 button.addEventListener("click", placeRandomImage);
 

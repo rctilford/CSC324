@@ -453,7 +453,7 @@
 // // the arrow function guesses that {coords: [0, 2, 3], length: 5} is the "this".
 
 
-// // IMPORTNAT
+// // IMPORTANT
 
 // let empty = {};
 // console.log(empty.toString);
@@ -675,7 +675,7 @@ class Person {
     }
 }
 
-ldorothy = new Person("Dorothy", 12, "Kansas");
+dorothy = new Person("Dorothy", 12, "Kansas");
 dorothy.greet();
 console.log(dorothy.desire);
 console.log(dorothy);

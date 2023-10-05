@@ -18,5 +18,31 @@
 // object as argument and creates a group that contains all the values produced by iterating over it.
 
 class Group {
-    
+    constructor(){
+        this.group = [];
+    }
+    add(n){
+        if(this.group.indexOf(3) > -1){
+            return(this.group.push(n));
+        } else {
+            return("I've already got that one.");
+        }
+    }
+    delete(n){
+        if(this.group.indexOf(n)){
+            return(this.group.pop(n));
+        } else {
+            return("I don't have this one");
+        }
+    }
+    has(n){
+        return(this.group.indexOf(n) >-1);
+    }    
 }
+
+let g = new Group()
+
+console.log(g.add(3))
+
+
+

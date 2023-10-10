@@ -1,11 +1,10 @@
 /********************************************************************
  * 
- * Your introductory remarks go here.
+ * Script to write a list of artist names into index.html
  * 
  *******************************************************************/
 
  // The array of objects, one object for each artist.
- 
  const artists = [
    {
      name: "Ms Scandalous",
@@ -34,17 +33,32 @@
   }
  ]
 
- // complete with code to select and populate the table
+ 
+ // this will hold the names:
+ let names = [];
+
+// push the names into names:
+
+ artists.forEach(function(artist) {
+   names.push(artist.name);
+ });
+ 
+ // grab the currently-empty div:
+const listDiv = document.querySelector("#bhangra-artists");
+
+// make the inner html:
+let contents = "<ul>";
+artists.forEach(function(artist) {
+  contents += `<li>${artist.name}</li>`;
+  contents += "<ul>";
+  contents += `<li>Year of birth: ${artist.birthYear}</li>`;
+  contents += `<li>Here is <a href= "${artist.link}" target="_blank">a popular song by ${artist.name}</a></li>`;
+  contents += "</ul>";
+})
+contents = contents + "</ul>";
+
+//insert unordered list HTML into div:
+listDiv.innerHTML = contents;
 
 
-for(i in artists){
-  let table = document.getElementById('Bhangra');
-  let row = table.insertRow(i+1);
-  let cell1 = row.insertCell(0);
-  let cell2 = row.insertCell(1);
-  let cell3 = row.insertCell(2);
 
-  cell1.innerHTML = artists[i].name;
-  cell2.innerHTML = artists[i].birthYear;
-  cell3.innerHTML = artists[i].link;
-}

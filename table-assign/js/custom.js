@@ -36,9 +36,9 @@
 
  // complete with code to select and populate the table
 
-
-for(i in artists){
-  let table = document.getElementById('Bhangra');
+let table = document.getElementById('bhangra');
+let row = table.insertRow(0);
+for(let i in artists){
   let row = table.insertRow(i+1);
   let cell1 = row.insertCell(0);
   let cell2 = row.insertCell(1);
@@ -48,3 +48,4 @@ for(i in artists){
   cell2.innerHTML = artists[i].birthYear;
   cell3.innerHTML = artists[i].link;
 }
+

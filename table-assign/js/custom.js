@@ -37,15 +37,17 @@
  // complete with code to select and populate the table
 
 let table = document.getElementById('bhangra');
-let row = table.insertRow(0);
-for(let i in artists){
-  let row = table.insertRow(i+1);
-  let cell1 = row.insertCell(0);
-  let cell2 = row.insertCell(1);
-  let cell3 = row.insertCell(2);
 
-  cell1.innerHTML = artists[i].name;
-  cell2.innerHTML = artists[i].birthYear;
-  cell3.innerHTML = artists[i].link;
-}
+let contents = `<tr><th>name</th>`;
+contents += `<th>birthyear</th>`;
+contents += `<th>link</th></tr>`;
 
+artists.forEach(function(artist) {
+  contents += `<tr>`;
+  contents += `<td>${artist.name}</td>`;
+  contents += `<td>${artist.birthYear}</td>`;
+  contents += `<td><a href= "${artist.link}" target="_blank">${artist.link}</a></td>`;
+  contents += `</tr>`;
+})
+
+table.innerHTML = contents;

@@ -1,4 +1,5 @@
-const anime = require('lib\anime.js');
+import {anime} from "lib\anime.es.js";
+
 
 anime({
     targets: 'div',
@@ -7,3 +8,4 @@ anime({
     backgroundColor: '#FFF',
     duration: 800
   });
+

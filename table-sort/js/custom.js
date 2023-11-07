@@ -95,8 +95,6 @@ const yearButton = createButton("year-button", "Sort by Year", document.getEleme
 
 const randomButton = createButton("random-button", "Shuffle", document.getElementById("sorting"));
 
-const reverseButton = createButton("reverse-button", "Reverse", document.getElementById("sorting"));
-
 // next lets add the event listeners to the buttons
 nameButton.addEventListener('click', function () {
   artists.sort(byName);
@@ -108,10 +106,6 @@ yearButton.addEventListener('click', function () {
 
 randomButton.addEventListener('click', function () {
   artists.sort(shuffle);
-});
-
-reverseButton.addEventListener('click', function () {
-  populateTable(artists.reverse());
 });
 
 // first a function to sort by name:

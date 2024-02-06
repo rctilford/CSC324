@@ -83,3 +83,5 @@ const artists = [
   //   const artist = document.querySelector("#random-artist");
   //   artist.innerHTML = pickArtist();
   // }
+
+  //QED
